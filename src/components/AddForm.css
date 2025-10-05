@@ -6,10 +6,21 @@
   gap: 1rem;
   background-color: transparent;
 }
-input {
+
+input,
+textarea,
+select {
   padding: 0.6rem;
   border-radius: 6px;
-  border: 2px solid var(--border-primary);
+  border: 1px solid var(--border-primary);
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--surface-primary);
+  color: var(--text-primary);
+}
+
+select {
+  cursor: pointer;
 }
 
 .btn-row {
@@ -25,10 +36,4 @@ button {
   cursor: pointer;
   background: var(--blue-50);
   color: var(--slate-100);
-}
-
-button[type="button"] {
-  color: var(--text-primary);
-  background-color: transparent;
-  border: 2px solid var(--border-primary);
 }
