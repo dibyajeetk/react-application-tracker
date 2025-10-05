@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import Table from "./components/Table";
+import AddForm from "./components/AddForm";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [jobs, setJobs] = useState<
+    {
+      jobName: string;
+      jobLink: string;
+      companyName: string;
+      date: string;
+      status: string;
+    }[]
+  >([]);
+
+  // Load from localStorage
+  useEffect(() => {
+    const stored = localStorage.getItem("jobs");
+    if (stored) setJobs(JSON.parse(stored));
+  }, []);
+
+  // Save to localStorage
+  useEffect(() => {
+    localStorage.setItem("jobs", JSON.stringify(jobs));
+  }, [jobs]);
+
+  const addJob = (job: {
+    jobName: string;
+    jobLink: string;
+    companyName: string;
+    date: string;
+    status: string;
+  }) => {
+    setJobs([...jobs, job]);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="layout">
+      <div className="table-section">
+        <Table jobs={jobs} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="form-section">
+        <AddForm onAdd={addJob} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
