@@ -88,8 +88,17 @@
   --text-primary: var(--slate-20);
   --text-secondary: var(--slate-60);
   --text-tertiary: var(--slate-70);
-}
 
+  /* size Typography*/
+  h2 {
+    font-size: calc(22px * 0.25vw);
+    line-height: 1.25;
+  }
+  p {
+    font-size: calc(14px * 0.25vw);
+    line-height: 1.5;
+  }
+}
 .layout {
   display: flex;
   height: 100vh;
@@ -99,11 +108,11 @@
 .table-section {
   flex: 7;
   overflow-y: auto;
-  background: #f8f8f8;
+  background: var(--surface-primary);
 }
 
 .form-section {
   flex: 3;
-  background: white;
-  border-left: 1px solid #ddd;
+  background: var(--surface-secondary);
+  border-left: 2px solid var(--border-primary);
 }

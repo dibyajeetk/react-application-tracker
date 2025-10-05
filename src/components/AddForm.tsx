@@ -38,41 +38,39 @@ export default function AddForm({ onAdd }: AddFormProps) {
   };
 
   return (
-    <div className="form-wrapper">
-      <form onSubmit={handleSubmit}>
-        <h2>Add New Job</h2>
-        <input
-          name="jobName"
-          placeholder="Job Name"
-          value={form.jobName}
-          onChange={handleChange}
-        />
-        <input
-          name="jobLink"
-          placeholder="Job Link"
-          value={form.jobLink}
-          onChange={handleChange}
-        />
-        <input
-          name="companyName"
-          placeholder="Company Name"
-          value={form.companyName}
-          onChange={handleChange}
-        />
-        <input
-          type="date"
-          name="date"
-          value={form.date}
-          onChange={handleChange}
-        />
-        <input
-          name="status"
-          placeholder="Status"
-          value={form.status}
-          onChange={handleChange}
-        />
-        <button type="submit">Add Job</button>
-      </form>
-    </div>
+    <form className="form-wrapper" onSubmit={handleSubmit}>
+      <h2>Add New Job</h2>
+      <input
+        name="jobName"
+        placeholder="Job Name"
+        value={form.jobName}
+        onChange={handleChange}
+      />
+      <input
+        name="jobLink"
+        placeholder="Job Link"
+        value={form.jobLink}
+        onChange={handleChange}
+      />
+      <input
+        name="companyName"
+        placeholder="Company Name"
+        value={form.companyName}
+        onChange={handleChange}
+      />
+      <input
+        type="date"
+        name="date"
+        value={form.date}
+        onChange={handleChange}
+      />
+      <input
+        name="status"
+        placeholder="Status"
+        value={form.status}
+        onChange={handleChange}
+      />
+      <button type="submit">Add Job</button>
+    </form>
   );
 }

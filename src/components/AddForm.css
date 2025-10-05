@@ -1,21 +1,11 @@
-.form-screen {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--surface-secondary);
-  overflow: hidden;
-}
-
-form {
+.form-wrapper {
   display: flex;
   flex-direction: column;
+  width: auto;
+  padding: 1rem;
   gap: 1rem;
-  width: 320px;
-  padding: 2rem;
-  border: 2px solid var(--border-primary);
+  background-color: transparent;
 }
-
 input {
   padding: 0.6rem;
   border-radius: 6px;
